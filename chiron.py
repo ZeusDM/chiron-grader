@@ -168,3 +168,5 @@ if __name__ == "__main__":
     elif args.command == 'split':
         file = os.path.abspath(os.path.expanduser(os.path.expandvars(args.file)))
         split(file)
+    else:
+        parser.print_help()
