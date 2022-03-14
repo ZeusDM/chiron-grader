@@ -2,6 +2,7 @@
 
 # This is a script that helps me grade homework assignemnts.
 
+from config import template_tex
 import argparse
 import os
 import subprocess
@@ -127,7 +128,6 @@ def export(directory):
             else:
                 grades += format_grade(problem, "not graded", str(max_score))
         tex_file = os.path.join(export_directory, filename.replace(".pdf", "")+"_grades.tex")
-        template_tex = os.path.join("/home/zeus/Documents/scripts/grader/template.tex")
         with open(template_tex) as f:
             tex = f.read()
         replace_dict = {"TITLE": title, "FIRSTNAME": firstname, "LASTNAME": lastname, "SCORE": str(total_score), "MAX": str(max_total_score), "PERCENTAGE": str((100*total_score) // max_total_score + ((100*total_score) % max_total_score > 0)), "GRADES": grades}
